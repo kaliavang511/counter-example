@@ -12,7 +12,7 @@ function App() {
         {username: "user3", password: "pass"},
     ]);
     function onSubmit(username, password){
-        return (event) =>{
+        return function realHandler(event) {
             event.preventDefault();
             let targetuser = userList.find(( elem)=>{
                 return elem.username == username;
