@@ -15,7 +15,7 @@ function Counter(props){
     return  (
         <>
             {count}
-            <button onClick={onClick}>i++</button>
+            <button className={"header"} onClick={onClick}>i++</button>
             <button onClick={onDec}>i--</button>
             <button onClick={onReset}>Reset</button>
         </>
