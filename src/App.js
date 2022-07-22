@@ -20,10 +20,12 @@ function App() {
             if(!targetuser){
                 setLogin(false);
                 setErrorMessage("User not found")
+                return;
             }
             if(targetuser.password == password) {
                 setLogin(true);
                 setErrorMessage("");
+                return;
             } else {
                 setErrorMessage("Password wrong")
             }

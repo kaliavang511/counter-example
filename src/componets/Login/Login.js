@@ -13,7 +13,7 @@ export default function Login(props){
 
     return <form onSubmit={props.onSubmit(username, password)} >
         <input onChange={onUsername} placeholder={"username"}/>
-        <input onChange={()=>{ /* */ }} type={"password"}></input>
+        <input onChange={onPassword} type={"password"}></input>
         {props.errorMessage?<p>{props.errorMessage}</p>: null}
         <button type={"submit"}>Login</button>
     </form>
