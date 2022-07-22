@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from "react";
 import Counter from "./componets/Counter/Counter"
 import Login from "./componets/Login/Login"
+import TaskList from "./componets/TaskList/TaskList";
 function App() {
     let [  loggedin, setLogin]  = useState(false);
     let [errorMessage, setErrorMessage] = useState('');
@@ -11,6 +12,7 @@ function App() {
         {username: "user2", password: "pass"},
         {username: "user3", password: "pass"},
     ]);
+    console.log(userList);
     function onSubmit(username, password){
         return function realHandler(event) {
             event.preventDefault();
@@ -40,8 +42,7 @@ function App() {
                return elem.username == username;
            })
            if(!targetuser){
-               userList.push({"username":username, "password": password});
-               setUserlist(userList)
+               setUserlist([...userList, {username, password }])
            } else {
                return setErrorMessage("Username exist")
            }
@@ -57,6 +58,7 @@ function App() {
             <>
             <button className="header" onClick={onLogout}>Logout</button>
             <Counter startVal={0}></Counter>
+                <TaskList></TaskList>
             </>
         );
     } else {
