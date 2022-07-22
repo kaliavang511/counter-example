@@ -34,6 +34,20 @@ function App() {
         }
 
     }
+    function onSignUp(username, password){
+       return function (){
+           let targetuser = userList.find((elem)=>{
+               return elem.username == username;
+           })
+           if(!targetuser){
+               userList.push({"username":username, "password": password});
+               setUserlist(userList)
+           } else {
+               return setErrorMessage("Username exist")
+           }
+
+       }
+    }
     function onLogout(){
         setLogin(false);
     }
@@ -46,7 +60,7 @@ function App() {
             </>
         );
     } else {
-        content = <Login onSubmit={onSubmit} errorMessage={errorMessage}></Login>
+        content = <Login onSubmit={onSubmit} onSignUp={onSignUp} errorMessage={errorMessage}></Login>
     }
     return <>
      {content}

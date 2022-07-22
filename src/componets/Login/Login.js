@@ -16,5 +16,6 @@ export default function Login(props){
         <input onChange={onPassword} type={"password"}></input>
         {props.errorMessage?<p>{props.errorMessage}</p>: null}
         <button type={"submit"}>Login</button>
+        <button type={"button"} onClick={props.onSignUp(username, password)}>Sign-Up</button>
     </form>
 }
